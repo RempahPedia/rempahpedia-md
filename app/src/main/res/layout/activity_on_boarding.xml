@@ -15,7 +15,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img_title" />
+        app:srcCompat="@drawable/img_title"
+        android:contentDescription="@string/onboard_title_desc" />
 
     <ImageView
         android:id="@+id/onboardImg"
@@ -25,7 +26,8 @@
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleImg"
-        app:srcCompat="@drawable/img_onboard" />
+        app:srcCompat="@drawable/img_onboard"
+        android:contentDescription="@string/onboard_img_desc" />
 
     <TextView
         android:id="@+id/onboardMsg"
@@ -33,7 +35,7 @@
         android:layout_height="77dp"
         android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-black"
-        android:text="Join us on our greatest discovery of spices!"
+        android:text="@string/onboard_msg"
         android:textColor="@color/red_main"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -43,11 +45,10 @@
 
     <Button
         android:id="@+id/signupButton"
-        android:layout_width="292dp"
-        android:layout_height="52dp"
+        android:layout_width="325dp"
+        android:layout_height="50dp"
         android:layout_marginTop="24dp"
-        android:backgroundTint="@color/red_main"
-        android:text="Sign Up"
+        android:text="@string/sign_up"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,11 +56,10 @@
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="292dp"
-        android:layout_height="52dp"
+        android:layout_width="325dp"
+        android:layout_height="50dp"
         android:layout_marginTop="12dp"
-        android:backgroundTint="@color/red_main"
-        android:text="Login"
+        android:text="@string/login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
