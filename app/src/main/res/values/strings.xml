@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">RempahPedia</string>
+    <string name="onboard_title_desc">Image title for the onboarding page</string>
+    <string name="onboard_msg">Join us on our greatest discovery of spices!</string>
+    <string name="onboard_img_desc">Spices image for the onboarding page</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login_msg">Ready to Spice up some Spices?</string>
+    <string name="login_img_desc">Image asset for the login page</string>
+    <string name="signup_img_desc">image asset for the sign up page</string>
+    <string name="signup_msg">Register Your Account</string>
+    <string name="name">Name</string>
+    <string name="logout">Logout</string>
 </resources>
