@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.camera.core.CameraControl
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -27,6 +28,8 @@ class CameraActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCameraBinding
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
     private var imageCapture: ImageCapture? = null
+    private var flashEnabled = false
+    private lateinit var cameraControl: CameraControl
 
     private val orientationEventListener by lazy {
         object : OrientationEventListener(this) {
@@ -60,6 +63,8 @@ class CameraActivity : AppCompatActivity() {
         binding = ActivityCameraBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.flashIcon.setOnClickListener { toggleFlash() }
+        binding.closeIcon.setOnClickListener { finish() }
         binding.captureButton.setOnClickListener { takePhoto() }
         binding.galleryIcon.setOnClickListener { startGallery() }
     }
@@ -85,12 +90,13 @@ class CameraActivity : AppCompatActivity() {
 
             try {
                 cameraProvider.unbindAll()
-                cameraProvider.bindToLifecycle(
+                val camera = cameraProvider.bindToLifecycle(
                     this,
                     cameraSelector,
                     preview,
                     imageCapture
                 )
+                cameraControl = camera.cameraControl
             } catch (exc: Exception) {
                 Toast.makeText(
                     this@CameraActivity,
@@ -99,6 +105,17 @@ class CameraActivity : AppCompatActivity() {
                 ).show()
             }
         }, ContextCompat.getMainExecutor(this))
+    }
+
+    private fun toggleFlash() {
+        flashEnabled = !flashEnabled
+        cameraControl.enableTorch(flashEnabled)
+        val flashIconResource = if (flashEnabled) {
+            R.drawable.ic_flash_off
+        } else {
+            R.drawable.ic_flash_on
+        }
+        binding.flashIcon.setImageResource(flashIconResource)
     }
 
     private fun takePhoto() {
