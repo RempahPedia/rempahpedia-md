@@ -1,6 +1,7 @@
 package com.rempahpedia.rempahpedia.ui.classification
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,8 @@ import android.view.Surface
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
@@ -58,7 +61,7 @@ class CameraActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.captureButton.setOnClickListener { takePhoto() }
-        binding.galleryIcon.setOnClickListener { }
+        binding.galleryIcon.setOnClickListener { startGallery() }
     }
 
     public override fun onResume() {
@@ -123,6 +126,23 @@ class CameraActivity : AppCompatActivity() {
                 }
             }
         )
+    }
+
+    private fun startGallery() {
+        launcherGallery.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+    }
+
+    private val launcherGallery = registerForActivityResult(
+        ActivityResultContracts.PickVisualMedia()
+    ) { uri: Uri? ->
+        if (uri != null) {
+            val intent = Intent()
+            intent.putExtra(EXTRA_CAMERAX_IMAGE, uri.toString())
+            setResult(CAMERAX_RESULT, intent)
+            finish()
+        } else {
+            // handle no selected media
+        }
     }
 
     private fun hideSystemUI() {
