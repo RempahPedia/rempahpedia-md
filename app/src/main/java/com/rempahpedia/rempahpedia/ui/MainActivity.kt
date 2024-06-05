@@ -9,13 +9,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.net.toUri
 import com.rempahpedia.rempahpedia.R
 import com.rempahpedia.rempahpedia.databinding.ActivityMainBinding
 import com.rempahpedia.rempahpedia.ui.auth.AuthViewModel
 import com.rempahpedia.rempahpedia.ui.auth.AuthViewModelFactory
 import com.rempahpedia.rempahpedia.ui.classification.CameraActivity
 import com.rempahpedia.rempahpedia.ui.classification.CameraActivity.Companion.CAMERAX_RESULT
+import com.rempahpedia.rempahpedia.ui.classification.ResultActivity
 
 class MainActivity : AppCompatActivity() {
     private val authViewModel by viewModels<AuthViewModel> {
@@ -28,9 +28,11 @@ class MainActivity : AppCompatActivity() {
             ActivityResultContracts.RequestPermission()
         ) { isGranted: Boolean ->
             if (isGranted) {
-                Toast.makeText(this, getString(R.string.permission_granted), Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.permission_granted), Toast.LENGTH_LONG)
+                    .show()
             } else {
-                Toast.makeText(this, getString(R.string.permission_denied), Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.permission_denied), Toast.LENGTH_LONG)
+                    .show()
             }
         }
 
@@ -74,9 +76,11 @@ class MainActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) {
         if (it.resultCode == CAMERAX_RESULT) {
-            val currentImageUri = it.data?.getStringExtra(CameraActivity.EXTRA_CAMERAX_IMAGE)?.toUri()
-//            showImage()
-            binding.helloWorld.text = currentImageUri.toString()
+            val currentImageUri = it.data?.getStringExtra(CameraActivity.EXTRA_CAMERAX_IMAGE)
+
+            val resultIntent = Intent(this@MainActivity, ResultActivity::class.java)
+            resultIntent.putExtra(ResultActivity.IMAGE_URI, currentImageUri)
+            startActivity(resultIntent)
         }
     }
 

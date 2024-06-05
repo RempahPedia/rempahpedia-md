@@ -20,4 +20,7 @@
     <string name="permission_granted">Camera permission granted</string>
     <string name="permission_denied">Camera permission denied</string>
     <string name="capture_button">Capture image button</string>
+    <string name="result">Result of the spice detection</string>
+    <string name="result_img">Image taken from the photo or gallery</string>
+    <string name="ml_soon">Stay tuned for the SPICE DETECTION!!</string>
 </resources>

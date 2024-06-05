@@ -56,7 +56,9 @@ class CameraActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCameraBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         binding.captureButton.setOnClickListener { takePhoto() }
+        binding.galleryIcon.setOnClickListener { }
     }
 
     public override fun onResume() {
