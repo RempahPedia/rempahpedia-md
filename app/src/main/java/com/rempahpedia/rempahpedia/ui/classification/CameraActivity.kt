@@ -1,6 +1,8 @@
 package com.rempahpedia.rempahpedia.ui.classification
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -31,6 +33,25 @@ class CameraActivity : AppCompatActivity() {
     private var flashEnabled = false
     private lateinit var cameraControl: CameraControl
 
+    private val requestPermissionLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted: Boolean ->
+            if (isGranted) {
+                Toast.makeText(this, getString(R.string.permission_granted), Toast.LENGTH_LONG)
+                    .show()
+            } else {
+                Toast.makeText(this, getString(R.string.permission_denied), Toast.LENGTH_LONG)
+                    .show()
+            }
+        }
+
+    private fun allPermissionsGranted() =
+        ContextCompat.checkSelfPermission(
+            this,
+            REQUIRED_PERMISSION
+        ) == PackageManager.PERMISSION_GRANTED
+
     private val orientationEventListener by lazy {
         object : OrientationEventListener(this) {
             override fun onOrientationChanged(orientation: Int) {
@@ -59,6 +80,10 @@ class CameraActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        if (!allPermissionsGranted()) {
+            requestPermissionLauncher.launch(REQUIRED_PERMISSION)
+        }
+
         super.onCreate(savedInstanceState)
         binding = ActivityCameraBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -179,5 +204,6 @@ class CameraActivity : AppCompatActivity() {
         private const val TAG = "CameraActivity"
         const val EXTRA_CAMERAX_IMAGE = "CameraX Image"
         const val CAMERAX_RESULT = 200
+        private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
     }
 }
