@@ -23,4 +23,19 @@
     <string name="result">Result of the spice detection</string>
     <string name="result_img">Image taken from the photo or gallery</string>
     <string name="ml_soon">Stay tuned for the SPICE DETECTION!!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="spices_name"> Nama Spices</string>
+
+    <string-array name="data_name">
+        <item>Contoh</item>
+        <item>Contoh</item>
+    </string-array>
+
+    <integer-array name="data_photo">
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+    </integer-array>
+
 </resources>

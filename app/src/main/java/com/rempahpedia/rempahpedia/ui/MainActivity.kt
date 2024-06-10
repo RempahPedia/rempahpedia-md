@@ -10,6 +10,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.rempahpedia.rempahpedia.R
+import com.rempahpedia.rempahpedia.bottomnav.camera.CameraFragment
+import com.rempahpedia.rempahpedia.bottomnav.home.HomeFragment
+import com.rempahpedia.rempahpedia.bottomnav.profile.ProfileFragment
 import com.rempahpedia.rempahpedia.databinding.ActivityMainBinding
 import com.rempahpedia.rempahpedia.ui.auth.AuthViewModel
 import com.rempahpedia.rempahpedia.ui.auth.AuthViewModelFactory
@@ -17,6 +20,7 @@ import com.rempahpedia.rempahpedia.ui.classification.CameraActivity
 import com.rempahpedia.rempahpedia.ui.classification.CameraActivity.Companion.CAMERAX_RESULT
 import com.rempahpedia.rempahpedia.ui.classification.ResultActivity
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
     private val authViewModel by viewModels<AuthViewModel> {
         AuthViewModelFactory.getInstance(this)
@@ -58,12 +62,40 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        binding.logoutButton.setOnClickListener {
-            authViewModel.logout()
-        }
+//        binding.logoutButton.setOnClickListener {
+//            authViewModel.logout()
+//        }
+//
+//        binding.captureImage.setOnClickListener {
+//            startCameraX()
+//        }
 
-        binding.captureImage.setOnClickListener {
-            startCameraX()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.main_frame, HomeFragment())
+            .commit()
+
+        binding.bottomNav.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.home -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_frame, HomeFragment())
+                        .commit()
+                    true
+                }
+                R.id.camera -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_frame, CameraFragment())
+                        .commit()
+                    true
+                }
+                R.id.profile -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_frame, ProfileFragment())
+                        .commit()
+                    true
+                }
+                else -> false
+            }
         }
     }
 
@@ -86,5 +118,6 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
+        private const val CAMERAX_RESULT = 123 // replace with your actual result code
     }
 }
