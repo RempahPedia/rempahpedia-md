@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".bottomnav.profile.ProfileFragment">
 
-
     <ImageView
         android:id="@+id/img_person"
         android:layout_width="80dp"
@@ -23,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Nama"
+        android:text="@string/name_profle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_person" />
@@ -33,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Username"
+        android:text="@string/username_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +43,7 @@
         android:layout_width="133dp"
         android:layout_height="45dp"
         android:layout_marginTop="48dp"
-        android:text="Edit Profile"
+        android:text="@string/edit_profile_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_name" />
