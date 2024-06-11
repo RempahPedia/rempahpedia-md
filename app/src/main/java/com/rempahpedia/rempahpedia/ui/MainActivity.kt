@@ -118,6 +118,6 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
-        private const val CAMERAX_RESULT = 123 // replace with your actual result code
+        private const val CAMERAX_RESULT = 123
     }
 }

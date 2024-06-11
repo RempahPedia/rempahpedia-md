@@ -6,12 +6,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.rempahpedia.rempahpedia.R
 import com.rempahpedia.rempahpedia.databinding.FragmentProfileBinding
+import com.rempahpedia.rempahpedia.ui.OnBoardingActivity
+import com.rempahpedia.rempahpedia.ui.auth.AuthViewModel
+import com.rempahpedia.rempahpedia.ui.auth.AuthViewModelFactory
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
+    private val authViewModel by viewModels<AuthViewModel> {
+        AuthViewModelFactory.getInstance(requireActivity())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +33,13 @@ class ProfileFragment : Fragment() {
 
         binding.editButton.setOnClickListener {
             val intent = Intent(activity, EditProfileActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.logoutButton.setOnClickListener {
+            authViewModel.logout()
+            val intent = Intent(activity, OnBoardingActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }
     }
