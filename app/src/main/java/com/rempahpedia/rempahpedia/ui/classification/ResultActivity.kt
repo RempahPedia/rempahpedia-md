@@ -30,7 +30,7 @@ class ResultActivity : AppCompatActivity() {
     private fun showImage() {
         currentImageUri?.let {
             binding.resultImage.setImageURI(it)
-            classifyCancer(it)
+            classifySpice(it)
         }
     }
 
@@ -48,7 +48,7 @@ class ResultActivity : AppCompatActivity() {
         }
     }
 
-    private fun classifyCancer(uri: Uri) {
+    private fun classifySpice(uri: Uri) {
         imageClassifierHelper = ImageClassifierHelper(
             context = this,
             classifierListener = object : ImageClassifierHelper.ClassifierListener {
