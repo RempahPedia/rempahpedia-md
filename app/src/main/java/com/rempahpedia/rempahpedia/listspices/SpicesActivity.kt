@@ -33,12 +33,13 @@ class SpicesActivity : AppCompatActivity() {
             val spices = Spices(dataName[i], dataPhoto.getResourceId(i, -1))
             listSpices.add(spices)
         }
+        dataPhoto.recycle()
         return listSpices
     }
 
     private fun showRecyclerList() {
         rvSpices.layoutManager = LinearLayoutManager(this)
-        val listHeroAdapter = ListSpicesAdapter(list)
-        rvSpices.adapter = listHeroAdapter
+        val listSpicesAdapter = ListSpicesAdapter(list)
+        rvSpices.adapter = listSpicesAdapter
     }
 }

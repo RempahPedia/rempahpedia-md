@@ -37,8 +37,35 @@
     <string name="edit_profile_button">Edit Profile</string>
     <string name="text_list_spices">Explore Our\nList of Spices</string>
     <string name="text_analyze">Analyze!</string>
+    <string name="deskripsi_lanjutan">Deskripsi Lanjutan</string>
+    <string name="deskripsi">Deskripsi</string>
+    <string name="nama_rempah">Nama Rempah</string>
 
     <string-array name="data_name">
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
+        <item>Contoh</item>
         <item>Contoh</item>
         <item>Contoh</item>
     </string-array>
@@ -46,8 +73,31 @@
     <integer-array name="data_photo">
         <item>@drawable/jahe</item>
         <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
+        <item>@drawable/jahe</item>
     </integer-array>
-
 
 
 </resources>
