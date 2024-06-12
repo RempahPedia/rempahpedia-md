@@ -4,11 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.rempahpedia.rempahpedia.R
+import com.rempahpedia.rempahpedia.bottomnav.home.HomeFragment
+import com.rempahpedia.rempahpedia.bottomnav.profile.ProfileFragment
 import com.rempahpedia.rempahpedia.databinding.ActivityMainBinding
 import com.rempahpedia.rempahpedia.ui.auth.AuthViewModel
 import com.rempahpedia.rempahpedia.ui.auth.AuthViewModelFactory
-import com.rempahpedia.rempahpedia.ui.classification.ResultActivity
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
     private val authViewModel by viewModels<AuthViewModel> {
         AuthViewModelFactory.getInstance(this)
@@ -20,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Check if the user has already logged in
         authViewModel.getSession().observe(this) { user ->
             if (!user.isLogin) {
                 startActivity(Intent(this, OnBoardingActivity::class.java))
@@ -28,13 +30,28 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        binding.logoutButton.setOnClickListener {
-            authViewModel.logout()
-        }
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.main_frame, HomeFragment())
+            .commit()
 
-        binding.captureImage.setOnClickListener {
-            val resultIntent = Intent(this@MainActivity, ResultActivity::class.java)
-            startActivity(resultIntent)
+        binding.bottomNav.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.home -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_frame, HomeFragment())
+                        .commit()
+                    true
+                }
+
+                R.id.profile -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_frame, ProfileFragment())
+                        .commit()
+                    true
+                }
+
+                else -> false
+            }
         }
     }
 }
