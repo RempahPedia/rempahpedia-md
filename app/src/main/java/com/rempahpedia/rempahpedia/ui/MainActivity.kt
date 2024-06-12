@@ -10,7 +10,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.rempahpedia.rempahpedia.R
-import com.rempahpedia.rempahpedia.bottomnav.camera.CameraFragment
 import com.rempahpedia.rempahpedia.bottomnav.home.HomeFragment
 import com.rempahpedia.rempahpedia.bottomnav.profile.ProfileFragment
 import com.rempahpedia.rempahpedia.databinding.ActivityMainBinding
@@ -79,12 +78,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.home -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frame, HomeFragment())
-                        .commit()
-                    true
-                }
-                R.id.camera -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frame, CameraFragment())
                         .commit()
                     true
                 }

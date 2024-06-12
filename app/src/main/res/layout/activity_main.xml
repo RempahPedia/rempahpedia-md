@@ -25,7 +25,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navbar">
+        app:menu="@menu/bottom_navbar"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        android:background="@color/red_main"
+        >
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 

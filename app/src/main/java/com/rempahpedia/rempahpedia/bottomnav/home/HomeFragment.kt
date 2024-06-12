@@ -9,6 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.rempahpedia.rempahpedia.R
 import com.rempahpedia.rempahpedia.databinding.FragmentHomeBinding
 import com.rempahpedia.rempahpedia.listspices.SpicesActivity
@@ -45,8 +48,8 @@ class HomeFragment : Fragment() {
 
         val btnAnalyze = binding.btnAnalyze
         val btnExplore = binding.btnExplore
-//        val rempahFirst = binding.rempahFirst
-//        val rempahSecond = binding.rempahSecond
+        val rempahFirst = binding.rempahFirst
+        val rempahSecond = binding.rempahSecond
 
         btnAnalyze.setOnClickListener {
             val intent = Intent(activity, CameraActivity::class.java)
@@ -57,6 +60,18 @@ class HomeFragment : Fragment() {
             val intent = Intent(activity, SpicesActivity::class.java)
             startActivity(intent)
         }
+
+        val requestOptions = RequestOptions().transform(RoundedCorners(18))
+
+        Glide.with(this)
+            .load(R.drawable.rempah)
+            .apply(requestOptions)
+            .into(rempahFirst)
+
+        Glide.with(this)
+            .load(R.drawable.rempah2)
+            .apply(requestOptions)
+            .into(rempahSecond)
     }
 
     override fun onDestroyView() {

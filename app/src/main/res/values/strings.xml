@@ -35,6 +35,8 @@
     <string name="name_profle">Nama</string>
     <string name="username_profile">Username</string>
     <string name="edit_profile_button">Edit Profile</string>
+    <string name="text_list_spices">Explore Our\nList of Spices</string>
+    <string name="text_analyze">Analyze!</string>
 
     <string-array name="data_name">
         <item>Contoh</item>

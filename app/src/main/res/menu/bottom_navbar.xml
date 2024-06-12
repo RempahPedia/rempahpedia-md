@@ -6,11 +6,6 @@
         android:icon="@drawable/home"
         />
 
-    <item android:title="Camera"
-        android:id="@+id/camera"
-        android:icon="@drawable/camera"
-        />
-
     <item android:title="Profile"
         android:id="@+id/profile"
         android:icon="@drawable/profile"
