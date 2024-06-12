@@ -26,33 +26,10 @@ class MainActivity : AppCompatActivity() {
     }
     private lateinit var binding: ActivityMainBinding
 
-    private val requestPermissionLauncher =
-        registerForActivityResult(
-            ActivityResultContracts.RequestPermission()
-        ) { isGranted: Boolean ->
-            if (isGranted) {
-                Toast.makeText(this, getString(R.string.permission_granted), Toast.LENGTH_LONG)
-                    .show()
-            } else {
-                Toast.makeText(this, getString(R.string.permission_denied), Toast.LENGTH_LONG)
-                    .show()
-            }
-        }
-
-    private fun allPermissionsGranted() =
-        ContextCompat.checkSelfPermission(
-            this,
-            REQUIRED_PERMISSION
-        ) == PackageManager.PERMISSION_GRANTED
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        if (!allPermissionsGranted()) {
-            requestPermissionLauncher.launch(REQUIRED_PERMISSION)
-        }
 
         authViewModel.getSession().observe(this) { user ->
             if (!user.isLogin) {
@@ -60,14 +37,6 @@ class MainActivity : AppCompatActivity() {
                 finish()
             }
         }
-
-//        binding.logoutButton.setOnClickListener {
-//            authViewModel.logout()
-//        }
-//
-//        binding.captureImage.setOnClickListener {
-//            startCameraX()
-//        }
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_frame, HomeFragment())
@@ -90,27 +59,5 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
-    }
-
-    private fun startCameraX() {
-        val intent = Intent(this, CameraActivity::class.java)
-        launcherIntentCameraX.launch(intent)
-    }
-
-    private val launcherIntentCameraX = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) {
-        if (it.resultCode == CAMERAX_RESULT) {
-            val currentImageUri = it.data?.getStringExtra(CameraActivity.EXTRA_CAMERAX_IMAGE)
-
-            val resultIntent = Intent(this@MainActivity, ResultActivity::class.java)
-            resultIntent.putExtra(ResultActivity.IMAGE_URI, currentImageUri)
-            startActivity(resultIntent)
-        }
-    }
-
-    companion object {
-        private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
-        private const val CAMERAX_RESULT = 123
     }
 }
