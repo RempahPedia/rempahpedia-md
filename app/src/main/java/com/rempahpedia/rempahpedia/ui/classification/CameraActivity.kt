@@ -89,7 +89,10 @@ class CameraActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.flashIcon.setOnClickListener { toggleFlash() }
-        binding.closeIcon.setOnClickListener { finish() }
+        binding.closeIcon.setOnClickListener {
+            setResult(RESULT_CANCELED)
+            finish()
+        }
         binding.captureButton.setOnClickListener { takePhoto() }
         binding.galleryIcon.setOnClickListener { startGallery() }
     }
