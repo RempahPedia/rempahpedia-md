@@ -21,6 +21,15 @@
         android:theme="@style/Theme.RempahPedia"
         tools:targetApi="31">
         <activity
+            android:name=".listspices.DetailSpicesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".bottomnav.profile.EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".listspices.SpicesActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.classification.ResultActivity"
             android:exported="false" />
         <activity

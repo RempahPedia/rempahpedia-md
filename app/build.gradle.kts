@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("kotlin-parcelize")
+    id ("kotlin-kapt")
 }
 
 android {
@@ -69,4 +71,8 @@ dependencies {
 
     implementation("org.tensorflow:tensorflow-lite-metadata:0.1.0")
     implementation("org.tensorflow:tensorflow-lite-task-vision:0.4.4")
+    implementation ("androidx.fragment:fragment-ktx:1.3.0")
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    kapt ("com.github.bumptech.glide:compiler:4.12.0")
+    implementation ("jp.wasabeef:glide-transformations:4.3.0")
 }
