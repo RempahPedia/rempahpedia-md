@@ -40,6 +40,7 @@
     <string name="deskripsi_lanjutan">Deskripsi Lanjutan</string>
     <string name="deskripsi">Deskripsi</string>
     <string name="nama_rempah">Nama Rempah</string>
+    <string name="text_list_jamu">Find Our More\nAbout Jamu</string>
 
     <string-array name="data_name">
         <item>Contoh</item>
