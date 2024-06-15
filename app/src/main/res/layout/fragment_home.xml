@@ -7,9 +7,11 @@
     tools:context=".bottomnav.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout1"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,35 +26,34 @@
             android:text="@string/text_analyze"
             android:textColor="@color/white"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/rempah_first"
-            android:layout_width="148dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="0dp"
+            android:layout_width="140dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="5dp"
             android:background="@drawable/rounded_image"
             android:src="@drawable/rempah"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/btn_analyze"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            android:contentDescription="@string/text_analyze" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_marginTop="408dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="32dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="@id/constraintLayout1"
+        app:layout_constraintStart_toStartOf="@id/constraintLayout1"
+        app:layout_constraintTop_toBottomOf="@id/constraintLayout1">
 
         <Button
             android:id="@+id/btn_explore"
@@ -66,20 +67,57 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/rempah_second"
-            android:layout_width="148dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="0dp"
+            android:layout_width="140dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="5dp"
             android:background="@drawable/rounded_image"
             android:src="@drawable/rempah2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            android:contentDescription="@string/text_list_spices" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="@id/constraintLayout1"
+        app:layout_constraintStart_toStartOf="@id/constraintLayout1"
+        app:layout_constraintTop_toBottomOf="@id/constraintLayout2">
+
+        <Button
+            android:id="@+id/btn_jamu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/button_rounded_corners"
+            android:gravity=""
+            android:text="@string/text_list_jamu"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/rempah_third"
+            android:layout_width="140dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rounded_image"
+            android:src="@drawable/jamu"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/text_list_jamu" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

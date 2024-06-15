@@ -40,6 +40,13 @@
     <string name="deskripsi_lanjutan">Deskripsi Lanjutan</string>
     <string name="deskripsi">Deskripsi</string>
     <string name="nama_rempah">Nama Rempah</string>
+    <string name="text_list_jamu">Find Our More\nAbout Jamu</string>
+    <string name="mengobati">Dapat mengobati:</string>
+    <string name="berbagai_khasiat">Jamu ini mempunyai berbagai khasiat seperti:</string>
+    <string name="berbagai_rempah">Rempah-rempah yang dapat digunakan untuk membuat jamu ini adalah sebagai berikut:</string>
+    <string name="berbagai_penyakit">Jamu ini juga dapat menyembuhkan berbagai macam penyakit, misalnya:</string>
+    <string name="cari_nama_jamu">Cari nama jamu</string>
+    <string name="filter">Filter</string>
 
     <string-array name="data_name">
         <item>Contoh</item>
