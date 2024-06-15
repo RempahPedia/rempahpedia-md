@@ -9,6 +9,12 @@ import com.rempahpedia.rempahpedia.data.pref.UserModel
 import kotlinx.coroutines.launch
 
 class AuthViewModel(private val repository: UserRepository) : ViewModel() {
+    fun saveSession(user: UserModel) {
+        viewModelScope.launch {
+            repository.saveSession(user)
+        }
+    }
+
     fun getSession(): LiveData<UserModel> {
         return repository.getSession().asLiveData()
     }
