@@ -13,6 +13,7 @@ import com.rempahpedia.rempahpedia.R
 import com.rempahpedia.rempahpedia.databinding.FragmentHomeBinding
 import com.rempahpedia.rempahpedia.listspices.SpicesActivity
 import com.rempahpedia.rempahpedia.ui.classification.ResultActivity
+import com.rempahpedia.rempahpedia.ui.jamu.ListJamuActivity
 
 class HomeFragment : Fragment() {
 
@@ -32,6 +33,7 @@ class HomeFragment : Fragment() {
 
         val btnAnalyze = binding.btnAnalyze
         val btnExplore = binding.btnExplore
+        val btnJamu = binding.btnJamu
         val rempahFirst = binding.rempahFirst
         val rempahSecond = binding.rempahSecond
 
@@ -42,6 +44,11 @@ class HomeFragment : Fragment() {
 
         btnExplore.setOnClickListener {
             val intent = Intent(activity, SpicesActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnJamu.setOnClickListener {
+            val intent = Intent(activity, ListJamuActivity::class.java)
             startActivity(intent)
         }
 
