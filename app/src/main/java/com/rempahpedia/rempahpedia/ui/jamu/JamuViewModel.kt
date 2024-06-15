@@ -20,7 +20,7 @@ class JamuViewModel : ViewModel() {
         getAllJamu()
     }
 
-    fun getAllJamu() {
+    private fun getAllJamu() {
         viewModelScope.launch {
             _isLoading.value = true
             try {

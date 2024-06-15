@@ -21,23 +21,37 @@
             android:id="@+id/tvJamuName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            android:textColor="@color/red_main"
+            android:textSize="20sp"
+            android:textStyle="bold|italic"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteY="8dp"
             tools:text="Nama jamu" />
+
+        <TextView
+            android:id="@+id/tvMengobati"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="5"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="@+id/tvJamuName"
+            card_view:layout_constraintTop_toBottomOf="@+id/tvJamuName"
+            tools:text="Dapat mengobati" />
 
         <TextView
             android:id="@+id/tvPenyakit"
             android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="4dp"
+            android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="5"
+            android:textSize="14sp"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toStartOf="@+id/tvJamuName"
-            card_view:layout_constraintTop_toBottomOf="@+id/tvJamuName"
-            tools:text="Manfaat jamu" />
+            card_view:layout_constraintStart_toStartOf="@+id/tvMengobati"
+            card_view:layout_constraintTop_toBottomOf="@+id/tvMengobati"
+            tools:text="Macam-macam penyakitnya" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
