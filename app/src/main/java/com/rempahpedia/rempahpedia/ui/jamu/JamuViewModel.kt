@@ -50,4 +50,22 @@ class JamuViewModel : ViewModel() {
             }
         }
     }
+
+    fun searchJamu(keyword: String, filter: String) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            try {
+
+                val jamus = ApiConfig
+                    .getApiService()
+                    .searchJamu(keyword, filter)
+
+                _listJamu.value = jamus
+                _isLoading.value = false
+            } catch (e: HttpException) {
+                _isLoading.value = false
+                _errorMessage.value = "Error saat mengambil data"
+            }
+        }
+    }
 }

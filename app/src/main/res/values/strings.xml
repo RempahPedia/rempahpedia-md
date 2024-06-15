@@ -45,6 +45,7 @@
     <string name="berbagai_khasiat">Jamu ini mempunyai berbagai khasiat seperti:</string>
     <string name="berbagai_rempah">Rempah-rempah yang dapat digunakan untuk membuat jamu ini adalah sebagai berikut:</string>
     <string name="berbagai_penyakit">Jamu ini juga dapat menyembuhkan berbagai macam penyakit, misalnya:</string>
+    <string name="cari_nama_jamu">Cari nama jamu</string>
 
     <string-array name="data_name">
         <item>Contoh</item>
