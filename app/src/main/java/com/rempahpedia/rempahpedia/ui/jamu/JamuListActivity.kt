@@ -9,10 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.rempahpedia.rempahpedia.data.remote.jamu.JamuResponseItem
-import com.rempahpedia.rempahpedia.databinding.ActivityListJamuBinding
+import com.rempahpedia.rempahpedia.databinding.ActivityJamuListBinding
 
-class ListJamuActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityListJamuBinding
+class JamuListActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityJamuListBinding
     private lateinit var filterRecyclerView: RecyclerView
     private lateinit var filterAdapter: FilterAdapter
 
@@ -23,7 +23,7 @@ class ListJamuActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityListJamuBinding.inflate(layoutInflater)
+        binding = ActivityJamuListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         filterRecyclerView = binding.rvFilter

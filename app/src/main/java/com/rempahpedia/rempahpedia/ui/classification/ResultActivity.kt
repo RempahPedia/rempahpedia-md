@@ -6,11 +6,19 @@ import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
+import androidx.lifecycle.lifecycleScope
+import com.rempahpedia.rempahpedia.data.remote.api.ApiConfig
+import com.rempahpedia.rempahpedia.data.remote.prediction.PredictionRequest
 import com.rempahpedia.rempahpedia.databinding.ActivityResultBinding
+import com.rempahpedia.rempahpedia.ui.OnBoardingActivity
+import com.rempahpedia.rempahpedia.ui.auth.AuthViewModel
+import com.rempahpedia.rempahpedia.ui.auth.AuthViewModelFactory
 import com.rempahpedia.rempahpedia.ui.classification.CameraActivity.Companion.CAMERAX_RESULT
 import com.rempahpedia.rempahpedia.ui.classification.utils.ImageClassifierHelper
+import kotlinx.coroutines.launch
 import org.tensorflow.lite.task.vision.classifier.Classifications
 import java.text.NumberFormat
 
@@ -18,13 +26,44 @@ class ResultActivity : AppCompatActivity() {
     private lateinit var imageClassifierHelper: ImageClassifierHelper
     private lateinit var binding: ActivityResultBinding
     private var currentImageUri: Uri? = null
+    private var currentPrediction: String? = null
+
+    private var token: String? = null
+    private val authViewModel by viewModels<AuthViewModel> {
+        AuthViewModelFactory.getInstance(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        authViewModel.getSession().observe(this) { user ->
+            if (!user.isLogin) {
+                startActivity(Intent(this, OnBoardingActivity::class.java))
+                finish()
+            } else {
+                token = "access_token=${user.token}"
+            }
+        }
+
         startCameraX()
 
         super.onCreate(savedInstanceState)
         binding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        // Save prediction
+        currentPrediction?.let { prediction ->
+            if (prediction == "bukan rempah") {
+                return
+            } else {
+                lifecycleScope.launch {
+                    val predictionRequest = PredictionRequest(prediction)
+                    ApiConfig.getApiService().savePrediction(token ?: "", predictionRequest)
+                }
+            }
+        }
     }
 
     private fun showImage() {
@@ -67,6 +106,7 @@ class ResultActivity : AppCompatActivity() {
                             if (it.isNotEmpty() && it[0].categories.isNotEmpty()) {
                                 val result = it[0].categories[0]
                                 val label = result.label.toString()
+                                currentPrediction = label
                                 val score = NumberFormat.getPercentInstance()
                                     .format(result.score).trim()
                                 binding.resultText.text = "$label $score"

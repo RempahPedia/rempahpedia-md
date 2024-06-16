@@ -1,4 +1,4 @@
-package com.rempahpedia.rempahpedia.bottomnav.home
+package com.rempahpedia.rempahpedia.ui.bottomnav.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,9 +11,9 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.rempahpedia.rempahpedia.R
 import com.rempahpedia.rempahpedia.databinding.FragmentHomeBinding
-import com.rempahpedia.rempahpedia.listspices.SpicesActivity
 import com.rempahpedia.rempahpedia.ui.classification.ResultActivity
-import com.rempahpedia.rempahpedia.ui.jamu.ListJamuActivity
+import com.rempahpedia.rempahpedia.ui.jamu.JamuListActivity
+import com.rempahpedia.rempahpedia.ui.rempah.RempahListActivity
 
 class HomeFragment : Fragment() {
 
@@ -43,12 +43,12 @@ class HomeFragment : Fragment() {
         }
 
         btnExplore.setOnClickListener {
-            val intent = Intent(activity, SpicesActivity::class.java)
+            val intent = Intent(activity, RempahListActivity::class.java)
             startActivity(intent)
         }
 
         btnJamu.setOnClickListener {
-            val intent = Intent(activity, ListJamuActivity::class.java)
+            val intent = Intent(activity, JamuListActivity::class.java)
             startActivity(intent)
         }
 
