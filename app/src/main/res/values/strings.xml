@@ -49,6 +49,7 @@
     <string name="filter">Filter</string>
     <string name="success">success</string>
     <string name="failed">Failed</string>
+    <string name="rempah_item_image">Rempah item image</string>
 
     <string-array name="data_name">
         <item>Contoh</item>
