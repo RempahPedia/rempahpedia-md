@@ -5,6 +5,7 @@ import com.rempahpedia.rempahpedia.data.remote.auth.LoginResponse
 import com.rempahpedia.rempahpedia.data.remote.auth.RegisterResponse
 import com.rempahpedia.rempahpedia.data.remote.jamu.JamuDetailResponse
 import com.rempahpedia.rempahpedia.data.remote.jamu.JamuResponseItem
+import com.rempahpedia.rempahpedia.data.remote.prediction.PredictionRequest
 import com.rempahpedia.rempahpedia.data.remote.rempah.RempahDetailResponse
 import com.rempahpedia.rempahpedia.data.remote.rempah.RempahResponseItem
 import retrofit2.http.Body
@@ -25,9 +26,15 @@ interface ApiService {
         @Body request: AuthRequest
     ): LoginResponse
 
+    @POST("prediction/save")
+    suspend fun savePrediction(
+        @Header("Cookie") token: String,
+        @Body request: PredictionRequest
+    ): RegisterResponse
+
     @GET("rempah")
     suspend fun getAllRempah(
-        @Header("Cookie") token: String,
+        @Header("Cookie") token: String
     ): List<RempahResponseItem>
 
     @GET("rempah/{id}")
