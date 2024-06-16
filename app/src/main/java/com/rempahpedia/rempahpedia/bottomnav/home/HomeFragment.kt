@@ -12,7 +12,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.rempahpedia.rempahpedia.R
 import com.rempahpedia.rempahpedia.databinding.FragmentHomeBinding
 import com.rempahpedia.rempahpedia.ui.classification.ResultActivity
-import com.rempahpedia.rempahpedia.ui.jamu.ListJamuActivity
+import com.rempahpedia.rempahpedia.ui.jamu.JamuListActivity
 import com.rempahpedia.rempahpedia.ui.rempah.RempahListActivity
 
 class HomeFragment : Fragment() {
@@ -48,7 +48,7 @@ class HomeFragment : Fragment() {
         }
 
         btnJamu.setOnClickListener {
-            val intent = Intent(activity, ListJamuActivity::class.java)
+            val intent = Intent(activity, JamuListActivity::class.java)
             startActivity(intent)
         }
 

@@ -30,7 +30,7 @@
             android:name=".ui.jamu.JamuDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.jamu.ListJamuActivity"
+            android:name=".ui.jamu.JamuListActivity"
             android:exported="false" />
         <activity
             android:name=".listspices.DetailSpicesActivity"
