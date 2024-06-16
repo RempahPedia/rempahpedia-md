@@ -33,13 +33,7 @@
             android:name=".ui.jamu.JamuListActivity"
             android:exported="false" />
         <activity
-            android:name=".listspices.DetailSpicesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".bottomnav.profile.EditProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".listspices.SpicesActivity"
+            android:name=".ui.bottomnav.profile.EditProfileActivity"
             android:exported="false" />
         <activity
             android:name=".ui.classification.ResultActivity"

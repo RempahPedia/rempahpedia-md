@@ -1,4 +1,4 @@
-package com.rempahpedia.rempahpedia.bottomnav.home
+package com.rempahpedia.rempahpedia.ui.bottomnav.home
 
 import android.content.Intent
 import android.os.Bundle

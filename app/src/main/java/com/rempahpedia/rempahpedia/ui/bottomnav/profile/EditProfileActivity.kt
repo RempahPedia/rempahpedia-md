@@ -1,4 +1,4 @@
-package com.rempahpedia.rempahpedia.bottomnav.profile
+package com.rempahpedia.rempahpedia.ui.bottomnav.profile
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

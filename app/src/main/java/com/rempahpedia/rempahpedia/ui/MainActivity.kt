@@ -5,8 +5,8 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.rempahpedia.rempahpedia.R
-import com.rempahpedia.rempahpedia.bottomnav.home.HomeFragment
-import com.rempahpedia.rempahpedia.bottomnav.profile.ProfileFragment
+import com.rempahpedia.rempahpedia.ui.bottomnav.home.HomeFragment
+import com.rempahpedia.rempahpedia.ui.bottomnav.profile.ProfileFragment
 import com.rempahpedia.rempahpedia.databinding.ActivityMainBinding
 import com.rempahpedia.rempahpedia.ui.auth.AuthViewModel
 import com.rempahpedia.rempahpedia.ui.auth.AuthViewModelFactory
