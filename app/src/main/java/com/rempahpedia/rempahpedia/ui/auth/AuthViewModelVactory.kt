@@ -3,7 +3,7 @@ package com.rempahpedia.rempahpedia.ui.auth
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.rempahpedia.rempahpedia.data.UserRepository
+import com.rempahpedia.rempahpedia.data.remote.auth.UserRepository
 import com.rempahpedia.rempahpedia.di.Injection
 
 class AuthViewModelFactory(private val repository: UserRepository) : ViewModelProvider.NewInstanceFactory() {

@@ -1,28 +1,28 @@
 <resources>
     <string name="app_name">RempahPedia</string>
     <string name="onboard_title_desc">Image title for the onboarding page</string>
-    <string name="onboard_msg">Join us on our greatest discovery of spices!</string>
+    <string name="onboard_msg">Ayo Eksplorasi dan Pelajari Rempah-Rempah!</string>
     <string name="onboard_img_desc">Spices image for the onboarding page</string>
     <string name="login">Login</string>
     <string name="sign_up">Sign Up</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="login_msg">Login to start</string>
+    <string name="login_msg">Login Untuk Memulai</string>
     <string name="login_img_desc">Image asset for the login page</string>
     <string name="signup_img_desc">image asset for the sign up page</string>
-    <string name="signup_msg">Register Your Account</string>
+    <string name="signup_msg">Daftarkan Akunmu</string>
     <string name="name">Name</string>
     <string name="logout">Logout</string>
     <string name="camera_button">Camera button</string>
     <string name="camera_frame">Camera frame</string>
-    <string name="camera_display_failure">Failed to display Camera</string>
-    <string name="image_capture_failure">Failed to capture image</string>
-    <string name="permission_granted">Camera permission granted</string>
-    <string name="permission_denied">Camera permission denied</string>
+    <string name="camera_display_failure">Gagal menampilkan kamera</string>
+    <string name="image_capture_failure">Gagal mengambil gambar</string>
+    <string name="permission_granted">Izin kamera diberikan</string>
+    <string name="permission_denied">Izin kamera ditolak</string>
     <string name="capture_button">Capture image button</string>
     <string name="result">Result of the spice detection</string>
     <string name="result_img">Image taken from the photo or gallery</string>
-    <string name="ml_soon">Stay tuned for the SPICE DETECTION!!</string>
+    <string name="ml_soon">Nantikan fitur SPICE DETECTION!!</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -35,12 +35,12 @@
     <string name="name_profle">Nama</string>
     <string name="username_profile">Username</string>
     <string name="edit_profile_button">Edit Profile</string>
-    <string name="text_list_spices">Explore Our\nList of Spices</string>
-    <string name="text_analyze">Analyze!</string>
+    <string name="text_list_spices">Jelajahi\nRempahmu</string>
+    <string name="text_analyze">Analisis Rempah</string>
     <string name="deskripsi_lanjutan">Deskripsi Lanjutan</string>
     <string name="deskripsi">Deskripsi</string>
     <string name="nama_rempah">Nama Rempah</string>
-    <string name="text_list_jamu">Find Out More\nAbout Jamu</string>
+    <string name="text_list_jamu">Cari Tahu\nBerbagai Jamu</string>
     <string name="mengobati">Dapat mengobati:</string>
     <string name="berbagai_khasiat">Jamu ini mempunyai berbagai khasiat seperti:</string>
     <string name="berbagai_rempah">Rempah-rempah yang dapat digunakan untuk membuat jamu ini adalah sebagai berikut:</string>
@@ -50,64 +50,5 @@
     <string name="success">success</string>
     <string name="failed">Failed</string>
     <string name="rempah_item_image">Rempah item image</string>
-
-    <string-array name="data_name">
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-        <item>Contoh</item>
-    </string-array>
-
-    <integer-array name="data_photo">
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-        <item>@drawable/jahe</item>
-    </integer-array>
-
-
+    <string name="avatar">User avatar</string>
 </resources>

@@ -1,7 +1,7 @@
 package com.rempahpedia.rempahpedia.di
 
 import android.content.Context
-import com.rempahpedia.rempahpedia.data.UserRepository
+import com.rempahpedia.rempahpedia.data.remote.auth.UserRepository
 import com.rempahpedia.rempahpedia.data.pref.UserPreference
 import com.rempahpedia.rempahpedia.data.pref.dataStore
 

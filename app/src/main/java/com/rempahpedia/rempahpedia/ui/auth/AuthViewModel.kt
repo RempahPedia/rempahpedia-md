@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.rempahpedia.rempahpedia.data.UserRepository
+import com.rempahpedia.rempahpedia.data.remote.auth.UserRepository
 import com.rempahpedia.rempahpedia.data.pref.UserModel
 import kotlinx.coroutines.launch
 
