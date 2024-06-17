@@ -26,7 +26,7 @@ class ResultActivity : AppCompatActivity() {
     private lateinit var imageClassifierHelper: ImageClassifierHelper
     private lateinit var binding: ActivityResultBinding
     private var currentImageUri: Uri? = null
-    private var currentPrediction: String? = null
+    private var currentPrediction: List<String>? = null
 
     private var token: String? = null
     private val authViewModel by viewModels<AuthViewModel> {
@@ -55,11 +55,20 @@ class ResultActivity : AppCompatActivity() {
 
         // Save prediction
         currentPrediction?.let { prediction ->
-            if (prediction == "bukan rempah") {
+            val label = prediction[0]
+            val score = prediction[1].trim('%').toInt()
+
+            if (label == "bukan rempah") {
                 return
+            } else if (score < 75) {
+                Toast.makeText(
+                    binding.root.context,
+                    "Dapatkan nilai prediksi diatas 75% untuk meng-unlock $label",
+                    Toast.LENGTH_LONG
+                ).show()
             } else {
                 lifecycleScope.launch {
-                    val predictionRequest = PredictionRequest(prediction)
+                    val predictionRequest = PredictionRequest(label)
                     ApiConfig.getApiService().savePrediction(token ?: "", predictionRequest)
                 }
             }
@@ -106,9 +115,10 @@ class ResultActivity : AppCompatActivity() {
                             if (it.isNotEmpty() && it[0].categories.isNotEmpty()) {
                                 val result = it[0].categories[0]
                                 val label = result.label.toString()
-                                currentPrediction = label
                                 val score = NumberFormat.getPercentInstance()
                                     .format(result.score).trim()
+
+                                currentPrediction = listOf(label, score)
                                 binding.resultText.text = "$label $score"
                             } else {
                                 binding.resultText.text = ""
