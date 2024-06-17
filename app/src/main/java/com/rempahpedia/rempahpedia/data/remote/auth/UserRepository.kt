@@ -1,4 +1,4 @@
-package com.rempahpedia.rempahpedia.data
+package com.rempahpedia.rempahpedia.data.remote.auth
 
 import com.rempahpedia.rempahpedia.data.pref.UserModel
 import com.rempahpedia.rempahpedia.data.pref.UserPreference
