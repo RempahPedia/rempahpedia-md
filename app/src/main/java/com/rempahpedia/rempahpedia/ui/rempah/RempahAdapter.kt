@@ -17,7 +17,6 @@ class RempahAdapter : ListAdapter<RempahResponseItem, RempahAdapter.ListViewHold
         val binding = RempahItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ListViewHolder(binding)
     }
-
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val rempah = getItem(position)
         val binding = holder.binding

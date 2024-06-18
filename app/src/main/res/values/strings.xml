@@ -36,7 +36,7 @@
     <string name="username_profile">Username</string>
     <string name="edit_profile_button">Edit Profile</string>
     <string name="text_list_spices">Jelajahi\nRempahmu</string>
-    <string name="text_analyze">Analisis Rempah</string>
+    <string name="text_analyze">Analisis\nRempah</string>
     <string name="deskripsi_lanjutan">Deskripsi Lanjutan</string>
     <string name="deskripsi">Deskripsi</string>
     <string name="nama_rempah">Nama Rempah</string>
@@ -47,7 +47,7 @@
     <string name="berbagai_penyakit">Jamu ini juga dapat menyembuhkan berbagai macam penyakit, misalnya:</string>
     <string name="cari_nama_jamu">Cari nama jamu</string>
     <string name="filter">Filter</string>
-    <string name="success">success</string>
+    <string name="success">Success</string>
     <string name="failed">Failed</string>
     <string name="rempah_item_image">Rempah item image</string>
     <string name="avatar">User avatar</string>
