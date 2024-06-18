@@ -8,6 +8,7 @@ import com.rempahpedia.rempahpedia.data.remote.jamu.JamuResponseItem
 import com.rempahpedia.rempahpedia.data.remote.prediction.PredictionRequest
 import com.rempahpedia.rempahpedia.data.remote.rempah.RempahDetailResponse
 import com.rempahpedia.rempahpedia.data.remote.rempah.RempahResponseItem
+import com.rempahpedia.rempahpedia.data.remote.rempah.RempahUnlockedResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -36,6 +37,11 @@ interface ApiService {
     suspend fun getAllRempah(
         @Header("Cookie") token: String
     ): List<RempahResponseItem>
+
+    @GET("prediction/unlocked")
+    suspend fun getRempahUnlocked(
+        @Header("Cookie") token: String
+    ): RempahUnlockedResponse
 
     @GET("rempah/{id}")
     suspend fun getRempahById(

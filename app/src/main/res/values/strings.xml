@@ -51,4 +51,5 @@
     <string name="failed">Failed</string>
     <string name="rempah_item_image">Rempah item image</string>
     <string name="avatar">User avatar</string>
+    <string name="rempah_unlocked">Rempah: …/30</string>
 </resources>
