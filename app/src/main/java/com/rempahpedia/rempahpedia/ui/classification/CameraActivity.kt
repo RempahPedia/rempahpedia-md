@@ -25,6 +25,7 @@ import androidx.core.content.ContextCompat
 import com.rempahpedia.rempahpedia.R
 import com.rempahpedia.rempahpedia.databinding.ActivityCameraBinding
 import com.rempahpedia.rempahpedia.ui.classification.utils.createCustomTempFile
+import com.yalantis.ucrop.UCrop
 
 class CameraActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCameraBinding
@@ -155,10 +156,9 @@ class CameraActivity : AppCompatActivity() {
             ContextCompat.getMainExecutor(this),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    val intent = Intent()
-                    intent.putExtra(EXTRA_CAMERAX_IMAGE, output.savedUri.toString())
-                    setResult(CAMERAX_RESULT, intent)
-                    finish()
+                    // Start uCrop activity for cropping the image
+                    val photoUri = Uri.fromFile(photoFile)
+                    startCrop(photoUri)
                 }
 
                 override fun onError(exc: ImageCaptureException) {
@@ -172,6 +172,39 @@ class CameraActivity : AppCompatActivity() {
             }
         )
     }
+
+    private fun startCrop(uri: Uri) {
+        val destinationUri = Uri.fromFile(createCustomTempFile(application))
+        val options = UCrop.Options().apply {
+            setCompressionQuality(80)
+            setHideBottomControls(true)
+            setFreeStyleCropEnabled(true)
+            setStatusBarColor(ContextCompat.getColor(this@CameraActivity, R.color.red_main))
+            setToolbarColor(ContextCompat.getColor(this@CameraActivity, R.color.red_light))
+            setToolbarTitle("Crop Image")
+        }
+        UCrop.of(uri, destinationUri)
+            .withOptions(options)
+            .withAspectRatio(1f, 1f)  // Set the aspect ratio for the crop box
+            .start(this)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK && requestCode == UCrop.REQUEST_CROP) {
+            val resultUri = UCrop.getOutput(data!!)
+            val intent = Intent()
+            intent.putExtra(EXTRA_CAMERAX_IMAGE, resultUri.toString())
+            setResult(CAMERAX_RESULT, intent)
+            finish()
+        } else if (resultCode == UCrop.RESULT_ERROR) {
+            val cropError = UCrop.getError(data!!)
+            Toast.makeText(this, cropError?.message, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
+
 
     private fun startGallery() {
         launcherGallery.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
