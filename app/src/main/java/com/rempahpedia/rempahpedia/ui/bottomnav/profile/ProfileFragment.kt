@@ -5,15 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
-import com.rempahpedia.rempahpedia.data.remote.api.ApiConfig
 import com.rempahpedia.rempahpedia.databinding.FragmentProfileBinding
 import com.rempahpedia.rempahpedia.ui.OnBoardingActivity
 import com.rempahpedia.rempahpedia.ui.auth.AuthViewModel
 import com.rempahpedia.rempahpedia.ui.auth.AuthViewModelFactory
-import kotlinx.coroutines.launch
+import com.rempahpedia.rempahpedia.ui.rempah.RempahViewModel
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
@@ -21,6 +20,7 @@ class ProfileFragment : Fragment() {
     private val authViewModel by viewModels<AuthViewModel> {
         AuthViewModelFactory.getInstance(requireActivity())
     }
+    private val rempahViewModel: RempahViewModel by viewModels<RempahViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,16 +42,13 @@ class ProfileFragment : Fragment() {
                 val email = user.email
                 binding.emailUser.text = email
                 binding.userName.text = email.split("@")[0]
-                lifecycleScope.launch {
-                    val rempahUnlocked = ApiConfig
-                        .getApiService()
-                        .getRempahUnlocked("access_token=${user.token}")
-                        .jumlah
-                    "Rempah: $rempahUnlocked/30".also { binding.rempahUnlocked.text = it }
 
-                    if (rempahUnlocked.toInt() == 30) {
-                        "${email.split("@")[0]}✅".also { binding.userName.text = it }
-                    }
+                rempahViewModel.getRempahUnlocked("access_token=${user.token}")
+                rempahViewModel.rempahUnlocked.observe(viewLifecycleOwner) { rempahUnlocked ->
+                    "Rempah: $rempahUnlocked/30".also { binding.rempahUnlocked.text = it }
+                }
+                rempahViewModel.errorMessage.observe(viewLifecycleOwner) { errorMessage ->
+                    Toast.makeText(binding.root.context, errorMessage, Toast.LENGTH_SHORT).show()
                 }
             }
         }

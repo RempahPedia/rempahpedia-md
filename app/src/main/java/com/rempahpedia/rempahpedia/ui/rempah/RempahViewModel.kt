@@ -14,6 +14,9 @@ class RempahViewModel : ViewModel() {
     private val _listRempah = MutableLiveData<List<RempahResponseItem>>()
     val listRempah: LiveData<List<RempahResponseItem>> = _listRempah
 
+    private val _rempahUnlocked = MutableLiveData<String>()
+    val rempahUnlocked: LiveData<String> = _rempahUnlocked
+
     private val _rempahDetail = MutableLiveData<RempahDetailResponse>()
     val rempahDetail: LiveData<RempahDetailResponse> = _rempahDetail
 
@@ -43,6 +46,20 @@ class RempahViewModel : ViewModel() {
             try {
                 val rempahDetail = ApiConfig.getApiService().getRempahById(id)
                 _rempahDetail.value = rempahDetail
+                _isLoading.value = false
+            } catch (e: HttpException) {
+                _isLoading.value = false
+                _errorMessage.value = "Error saat mengambil data"
+            }
+        }
+    }
+
+    fun getRempahUnlocked(token: String) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            try {
+                val rempahs = ApiConfig.getApiService().getRempahUnlocked(token)
+                _rempahUnlocked.value = rempahs.jumlah
                 _isLoading.value = false
             } catch (e: HttpException) {
                 _isLoading.value = false
