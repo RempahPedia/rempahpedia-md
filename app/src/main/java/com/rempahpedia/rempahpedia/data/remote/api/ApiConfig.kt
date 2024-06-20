@@ -20,7 +20,7 @@ object ApiConfig {
         val client = clientBuilder.build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://rempahpedia-6qjjxs4fia-et.a.run.app/api/")
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
