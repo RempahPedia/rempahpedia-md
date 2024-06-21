@@ -3,4 +3,7 @@
 * Clone this repository, run with Android Studio or your preferred IDE using emulator/real device
 
 # Demo
-See [YouTube](https://www.youtube.com/watch?v=oTpbpwlyt2Y)
+See [RempahPedia Demo](https://www.youtube.com/watch?v=oTpbpwlyt2Y)
+
+# More Details
+See [Details](https://www.youtube.com/watch?v=2yPeLNH-fcU)
